@@ -15,7 +15,7 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.5.7 # Replace with the Terraform version you want to test
+          terraform_version: 1.9.8 # Replace with the Terraform version you want to test
 
       - name: Verify Terraform installation
         run: terraform --version
