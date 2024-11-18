@@ -1,1 +1,22 @@
+name: Test Terraform Installation
+
+on:
+  push:
+    paths:
+      - .github/workflows/**
+
+jobs:
+  test-runner:
+    runs-on: self-hosted # or 'ubuntu-latest' if you're not using a self-hosted runner
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.7 # Replace with the Terraform version you want to test
+
+      - name: Verify Terraform installation
+        run: terraform --version
 
