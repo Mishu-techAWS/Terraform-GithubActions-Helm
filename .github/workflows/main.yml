@@ -11,6 +11,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+      
+      - name: Set up GCP authentication
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcp-key.json
+        run: |
+          echo "${{ secrets.GCP_CREDENTIALS }}" > $GOOGLE_APPLICATION_CREDENTIALS
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
@@ -20,3 +26,8 @@ jobs:
       - name: Verify Terraform installation
         run: terraform --version
 
+      - name: Terraform Init
+        run: terraform init
+    
+      - name: Terraform Plan
+        run: terraform plan
