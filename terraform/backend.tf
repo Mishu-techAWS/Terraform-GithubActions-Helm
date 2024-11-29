@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "gcp-bucket"
-    prefix = "terraform/state"
+    bucket = "gcp-bucket-devyoddha"
+    prefix = "terraform/statefile"
   }
 }
