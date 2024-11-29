@@ -16,6 +16,10 @@ variable "subnet_names" {
   type = list(string)
 }
 
-variable "subnet_cidr_ranges" {
+variable "public_subnet_cidr_ranges" {
+  type = list(string)
+}
+
+variable "private_subnet_cidr_ranges" {
   type = list(string)
 }
